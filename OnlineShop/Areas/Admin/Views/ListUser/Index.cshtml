@@ -1,0 +1,49 @@
+﻿@model List<Models.Framework.tbl_user>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-4">
+            <h1 class="mt-4">Tables</h1>
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table me-1"></i>
+                    DataTable UserInfo
+                </div>
+                <div class="card-body">
+                    <table id="datatablesSimple">
+                        <thead>
+                            <tr>
+                                <th>user_id</th>
+                                <th>group_id</th>
+                                <th>login_name</th>
+                                <th>Tên katakana</th>
+                                <th>birthday</th>
+                                <th>email</th>
+                                <th>telephone</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.user_id</td>
+                                    <td>@item.group_id</td>
+                                    <td>@item.login_name</td>
+                                    <td>@item.full_name_kana</td>
+                                    <td>@item.birthday.ToString("yyyy/MM/dd")</td>
+                                    <td>@item.email</td>
+                                    <td>@item.tel</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

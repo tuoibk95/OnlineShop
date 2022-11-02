@@ -37,7 +37,7 @@ namespace OnlineShop.Areas.Admin.Controllers
                     // Không cần sử dụng session vì MVC đã có cơ chế cookie
                     //SessionHelper.SetSession(new UserSession() { loginName = model.loginName });
                     FormsAuthentication.SetAuthCookie(model.loginName, model.RememberMe);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "ListUser");
                 }
                 else
                 {
@@ -45,12 +45,6 @@ namespace OnlineShop.Areas.Admin.Controllers
                 }
             }
             return View(model);
-        }
-
-        public ActionResult Logout()
-        {
-            FormsAuthentication.SignOut();
-            return RedirectToAction("Index", "Login");
         }
     }
 }
