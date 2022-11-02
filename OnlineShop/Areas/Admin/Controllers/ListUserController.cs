@@ -1,4 +1,5 @@
 ﻿using Models;
+using Models.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,7 @@ namespace OnlineShop.Areas.Admin.Controllers
         }
 
         // GET: Admin/ListUser/Create
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
@@ -31,13 +33,21 @@ namespace OnlineShop.Areas.Admin.Controllers
 
         // POST: Admin/ListUser/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(tbl_user collection)
         {
             try
             {
+                var result = new UserInfoViewModel().CreateUser(collection.group_id, collection.login_name, collection.password, collection.full_name,collection.full_name_kana,collection.email,collection.tel, collection.birthday,collection.rules,collection.salt);
                 // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                if (result == 1 && ModelState.IsValid)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("","Thêm mới không thành công");
+                }
+                return View(collection);
             }
             catch
             {

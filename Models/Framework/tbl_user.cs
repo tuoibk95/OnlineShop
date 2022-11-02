@@ -1,4 +1,4 @@
-namespace Models.Framework
+﻿namespace Models.Framework
 {
     using System;
     using System.Collections.Generic;
@@ -15,33 +15,40 @@ namespace Models.Framework
 
         [Key]
         public int user_id { get; set; }
-
+        [Display(Name ="Tên nhóm")]
         public int group_id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Bạn cần nhập đầy đủ tên TK")]
         [StringLength(15)]
+        [Display(Name ="Tên tài khoản")]
         public string login_name { get; set; }
 
         [Required]
         [StringLength(50)]
+        [Display(Name = "Mật khẩu")]
         public string password { get; set; }
 
         [Required]
         [StringLength(255)]
+        [Display(Name = "Tên đầy đủ")]
         public string full_name { get; set; }
 
         [StringLength(255)]
+        [Display(Name = "Tên katakana")]
         public string full_name_kana { get; set; }
 
         [Required]
         [StringLength(255)]
+        [Display(Name = "Địa chỉ email")]
         public string email { get; set; }
 
         [Required]
         [StringLength(15)]
+        [Display(Name = "Số điện thoại")]
         public string tel { get; set; }
 
         [Column(TypeName = "date")]
+        [Display(Name = "Ngày sinh")]
         public DateTime birthday { get; set; }
 
         public int rules { get; set; }

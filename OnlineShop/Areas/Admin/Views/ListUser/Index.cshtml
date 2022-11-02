@@ -14,6 +14,9 @@
                     <i class="fas fa-table me-1"></i>
                     DataTable UserInfo
                 </div>
+                <div>
+                    @Html.ActionLink("Next to Create", "Create")
+                </div>
                 <div class="card-body">
                     <table id="datatablesSimple">
                         <thead>
@@ -21,6 +24,7 @@
                                 <th>user_id</th>
                                 <th>group_id</th>
                                 <th>login_name</th>
+                                <th>full_name</th>
                                 <th>Tên katakana</th>
                                 <th>birthday</th>
                                 <th>email</th>
@@ -34,6 +38,7 @@
                                     <td>@item.user_id</td>
                                     <td>@item.group_id</td>
                                     <td>@item.login_name</td>
+                                    <td>@item.full_name</td>
                                     <td>@item.full_name_kana</td>
                                     <td>@item.birthday.ToString("yyyy/MM/dd")</td>
                                     <td>@item.email</td>
